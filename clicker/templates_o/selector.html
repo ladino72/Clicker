@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>click</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/bootstrap/css/bootstrap.min.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/css/styles.min.css') }}">
+
+    <script type="text/javascript" async
+             src="http://127.0.0.1:5000/static/mathjax/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-dark navbar-expand-md bg-primary">
+            <div class="container-fluid"><a class="navbar-brand" href="#">Clicker</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse"
+                    id="navcol-1">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Admin</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Quiz</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Login</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Sign up</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Log out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <div id="header">
+            <h4 class="text-center text-primary"><strong>AVAILABLE PROBLEMS </strong></h4>
+        </div>
+
+        <form method="POST" action="{{ url_for('admin_test.selector', id= id)}}">
+
+        {% for question in quiz['questions'] %}
+            <div class="form-group">
+                <div id="prob">
+                    <div class="container-fluid text-center">
+                        <div class="form-check text-left"><input class="form-check-input" type="checkbox"  name="prob" value={{ question.id }} id="formCheck-1">
+                            <label class="form-check-label text-primary" for="formCheck-1">
+                                <strong>Problem {{loop.index}}:</strong></label></div>
+                        <p class="text-justify">{{question['text']|safe}}<br></p>
+                    </div>
+                    
+                    <div class="container">
+
+                            {% if question.image %}
+                                {% if question.image.startswith('http://') %}
+                                <img src="{{ question.image }}">
+                                {% else %}
+                                <div class="text-center"><img src="{{ url_for('static', filename='img/' + question.image) }}" width="250"></div>
+                                {% endif %}
+        
+                            {% endif %}
+                    
+                            <div class="text-left" id="prob">
+                                <ul>
+                                    {% for option in question["options"] %}
+                                        <li>{{option[0]}}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+            <div class="form-group">
+                <div class="text-right"><button class="btn btn-primary" type="submit">Submit</button></div>
+            </div>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/bootstrap/js/bootstrap.min.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>click</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/bootstrap/css/bootstrap.min.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/css/styles.min.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-dark navbar-expand-md bg-primary">
+            <div class="container-fluid"><a class="navbar-brand" href="#">Clicker</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse"
+                    id="navcol-1">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Admin</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Quiz</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Login</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Sign up</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Log out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="row register-form">
+        <div class="col-md-8 offset-md-2">
+            <form class="custom-form" method="POST" action="{{ url_for('auth.login') }}">
+                <h1 class="text-primary">LOGIN FORM</h1>
+                <h6 class="text-danger">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {%  for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+
+                        {% endif %}
+                    {% endwith %}
+
+                </h6>
+
+                <div class="form-row form-group">
+                    <div class="col-sm-4 label-column"><label class="col-form-label" for="email-input-field">Email </label></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="email" name="email" required="" inputmode="email" maxlength="80"></div>
+                </div>
+                <div class="form-row form-group">
+                    <div class="col-sm-4 label-column"><label class="col-form-label" for="pawssword-input-field">Password </label></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="password" name="password" required="" minlength="4" maxlength="80"></div>
+                </div>
+                <div class="form-row form-group">
+                    <div class="col-sm-4 col-md-5 label-column">
+                        <div class="form-check"><input class="form-check-input" type="checkbox" name="rememberme" value="yes" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Remember me</label></div>
+                    </div>
+                </div>
+                <div class="form-row form-group">
+                    <div class="col-lg-12 offset-lg-0"><button class="btn btn-light submit-button" type="submit">Submit Form</button></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/bootstrap/js/bootstrap.min.js') }}"></script>
+
+   
+</body>
+
+</html>

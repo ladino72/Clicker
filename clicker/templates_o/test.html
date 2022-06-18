@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>click</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/bootstrap/css/bootstrap.min.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/css/styles.min.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-dark navbar-expand-md bg-primary">
+            <div class="container-fluid"><a class="navbar-brand" href="#">Clicker</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse"
+                    id="navcol-1">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Admin</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Quiz</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Login</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Sign up</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Log out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <div id="header">
+            <h4 class="text-center text-primary"><strong>ACTIVITY: {{ current_user.name }}</strong></h4>
+        </div>
+        <form method="POST" action="{{ url_for('admin_test.check_test',id=id) }}" >
+            <div class="form-group"><input class="form-control" type="hidden" name="ord" value="{{quiz_ordering}}"></div>
+            {% for question in quiz %}
+            {% set outer_loop = loop %}
+            <div class="form-group">
+                <div id="prob">
+                    <div class="container">
+                        <h5 class="text-primary"><strong>Problem {{loop.index}}</strong></h5>
+                        <p class="text-justify">{{question['text']|safe}}<br></p>
+                    </div>
+                    <div class="container">
+
+                            {% if question.image %}
+                            {% if question.image.startswith('http://') %}
+                                <img src="{{ question.image }}">
+                            {% else %}
+                            <div class="text-center"><img src="{{ url_for('static', filename='img/' + question.image) }}" width="250"></div>
+                            {% endif %}
+                        {% endif %}
+                        
+
+                        <div class="text-left" id="prob">
+                            <div>
+                                <fieldset>
+                                    {% for answer in question['options'] %}
+                                    <div class="form-check">
+                                            <label class="form-check-label" for="radio1">
+                                              <input type="radio" class="form-check-input"  name="{{outer_loop.index0}}" value="{{loop.index0}}">{{answer[0]|safe}}
+                                            </label>
+                                    </div>
+                                   {% endfor %}
+                                    
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+ 
+            <div class="form-group">
+                <div class="text-right"><button class="btn btn-primary" type="submit">Submit</button></div>
+            </div>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/bootstrap/js/bootstrap.min.js') }}"></script>
+
+</body>
+
+</html>

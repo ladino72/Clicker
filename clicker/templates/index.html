@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+{{super()}}
+{% endblock %}
+{% block content %}
+<div id="contjumbo">
+        <div class="container">
+            <div class="jumbotron" id="jumbotron">
+                <h1>Welcome {{ current_user.name|names }}</h1>
+                <p>In this activity you should work individually and answer all the questions. Once you click the submit button you can not change your answers. Please wait until your instructor announces you to start taking the test by clicking the "Start"
+                    button.</p>
+                <p><a class="btn btn-primary" role="button" href="{{url_for('admin_test.view_test')}}">Start</a></p>
+            </div>
+        </div>
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{
+    "name": "Física Fundamental: Conversión de unidades",
+    "description": "How well versed are you in elementary chemistry?",
+    "questions": [
+        {
+            "text": "The symbol of water is:?",
+	    "id":10,
+            "options": [
+                ["HOH", false],
+                ["\\(H_2O\\)", true],
+                ["HHOO", false],
+                ["\\(HO_2\\)", false]
+            ]
+        },
+        {
+            "text": "Reddiquette suggests that you should",
+	    "id":20,
+            "options": [
+                ["Dox your enemies in /r/politics arguments", false],
+                ["Spam your own blog for the sweet, sweet money", false],
+                ["Look for original content", true],
+                ["Create a hilarious and quirky name like I_DIDDLE_CATS to whore karma", false]
+            ]
+        },
+        {
+            "text": "You should...",
+	    "id":30,
+            "options": [
+                ["Ignore the Reddiquette", false],
+                ["Not ignore the Reddiquette", true]
+            ]
+        },
+        {
+            "text": "Do...",
+            "id":40,
+            "options": [
+                ["Write titles in ALL CAPS", false],
+                ["Use link shorteners", false],
+                ["Linkjack stories to blogspam", false],
+                ["Be a pretty cool guy", true],
+                ["Be a VERY cool guy", true],
+                ["Complain about reposts", false]
+            ]
+        },
+        {
+            "text": "Reddit suggests that you should...",
+            "id":50,
+            "options": [
+                ["Do illegal things on the site", false],
+                ["Don't do illegal things", true]
+            ]
+        }
+    ]
+}

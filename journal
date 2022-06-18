@@ -1,0 +1,90 @@
+In this version:
+1) A new database called commands.db was created to handle commands-related operations.
+In principle this database is only accessed by the admin.
+
+The way this database was created was following the instructions provided by Anthony Herbert from prettyprinted.com
+How to Use Multiple Databases With Flask-SQLAlchemy: https://www.youtube.com/watch?v=SB5BfYYpXjE
+
+In this version of clicker, there are two databases: db.sqlite3 and commands.db
+These two databases were put in a directory called databases. To do this, two main changes were made to
+the files settings.py and remove_databases.py. Basically, the path to these databases were modified.
+
+When the "flask create_tables" (without quotations) is executed from the python terminal, the old versions of
+db.sqlite3 and commands.db are deleted. If no version of these databases exist then new databases are created.
+Besides, "enable_test": false, "end_test": false, "auth_see_sol": false, "grade_already": false are save in one
+commands.db row. Only one row with id=1 contains this table. This must be done to avoid create this table manually.
+On the other hand, this info is essential to operate Clicker the first time.
+
+When the "flask create_commands_table" (without quotations) is executed from the python terminal, the old versions of
+commands.db is deleted. If no version of this database exist then a new database is created.
+Besides, "enable_test": false, "end_test": false, "auth_see_sol": false, "grade_already": false are save in one
+commands.db row. Only one row with id=1 contains this table. This must be done to avoid create this table manually.
+On the other hand, this info is essential to operate Clicker the first time.
+Actually, "flask create_commands_table" is redundant. I just created for fun. It is enough to execute "flask create_tables"
+
+To create the extra database (commands.db) the files commands.py,  __init__.py  and settings.py were modified.
+
+In commands.py:
+from .utils.remove_databases import RemoveDatabases
+
+@click.command(name='create_tables')
+@with_appcontext
+def create_tables():
+
+	# First remove old databases, otherwise the db.create_all() doe not create new databases
+	RemoveDatabases.remove_databases()
+	# Next command create two databases (db.sqlite3 and commands.db) with corresponding tables
+	db.create_all()
+	# Commands table requires to have the next fields initialized
+	commands = Commands(enable_test=False, end_test=False, grade_already=False, auth_see_sol=False)
+	db.session.add(commands)
+	db.session.commit()
+
+# In terminal: type "flask create_command_table" without quotations to create commands.db database
+# with corresponding table called Commands. If database already exist, the command delete it and creates
+# a new one.
+@click.command(name='create_commands_table')
+@with_appcontext
+def create_commands_table():
+	# First remove old database, otherwise the db.create_all((bind="commands")) doe not create new databases
+	RemoveDatabases.remove_command_database()
+	# Next command create one database (commands.db) with corresponding table
+	db.create_all(bind="commands")
+	# Commands table requires to have the next fields initialized
+	commands = Commands(enable_test=False, end_test=False, grade_already=False, auth_see_sol=False)
+	db.session.add(commands)
+	db.session.commit()
+
+In __init__.py:
+
+from .commands import create_commands_table
+
+def create_app(config_file='settings.py'):
+
+    app.cli.add_command(create_commands_table)
+
+
+In settings.py:
+SQLALCHEMY_BINDS = {'commands': 'sqlite:///' + join(PROJECT_PATH, 'clicker/databases/commands.db')}
+
+2) In command_console.html the lines containing code to enable checkboxes (Grade test, Show answers and Save results)
+were removed.
+3) #Form-check4 #Form-check5 and #Form-check6 were deleted from the js files, as these labels were related to the
+ Grade test, Show answers and Save results checkboxes
+
+4) All pages containing equations were modified to display equations:
+The pages are: test.html, selected.html, selector.html and answers_score.html
+This was done by adding
+<script type="text/javascript" async
+             src="http://127.0.0.1:5000/static/mathjax/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+to the html block head. Thus, the result is:
+
+{% block head %}
+{{super()}}
+    <script type="text/javascript" async
+             src="http://127.0.0.1:5000/static/mathjax/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+{% endblock %}
+
+5)

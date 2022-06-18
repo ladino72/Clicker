@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>click</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/bootstrap/css/bootstrap.min.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/css/styles.min.css') }}">
+
+</head>
+
+<body>
+
+<form method="POST" action="{{ url_for('auth.authorize_test') }}">
+  <p>Enable test:</p>
+  <input type="checkbox" name="enable_test" value="1"> Enable test<br>
+    <input type="checkbox" name="auth_see_sol" value="1"> Permission to see solutions<br>
+    <input type="checkbox" name="end_test" value="1"> Finalize test<br>
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

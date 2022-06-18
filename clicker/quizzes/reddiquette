@@ -1,0 +1,42 @@
+{
+    "name": "Física Fundamental: Densidad",
+    "description": "How well versed are you in the rules of Reddit? Quiz yoself before you run afoul!",
+    "questions": [
+        {
+            "text": "Reddiquette is the ettiquette of which site?",
+	    "id":"S10",
+            "options": [
+                ["4chan", false],
+                ["Reddit", true],
+                ["9gag", false],
+                ["iFunny", false]
+            ]
+        },
+        {
+            "text": "Reddiquette suggests that you should",
+	    "id":"S20",
+            "options": [
+                ["Dox your enemies in /r/politics arguments", false],
+                ["Spam your own blog for the sweet, sweet money", false],
+                ["Look for original content", true],
+                ["Create a hilarious and quirky name like I_DIDDLE_CATS to whore karma", false]
+            ]
+        },
+        {
+            "text": "You should...",
+	    "id":"S30",
+            "options": [
+                ["Ignore the Reddiquette", false],
+                ["Not ignore the Reddiquette", true]
+            ]
+        },
+        {
+            "text": "Reddit suggests that you should...",
+	    "id":"S40",
+            "options": [
+                ["Do illegal things on the site", false],
+                ["Don't do illegal things", true]
+            ]
+        }
+    ]
+}

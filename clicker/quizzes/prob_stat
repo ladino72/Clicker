@@ -1,0 +1,94 @@
+{
+    "name": "Física Fundamental: Proporciones",
+    "description": "Basic concepts",
+    "questions": [
+        {
+            "text": "A die is rolled, the probability that an even number is obtained is:",
+            "id":0,
+            "image": "police_car1.png",
+            "options": [
+                ["\\(\\frac{1}{3} \\)", false],
+                ["\\(\\frac{1}{2} \\)", true],
+                ["\\(\\frac{1}{5} \\)", false],
+                ["\\(\\frac{1}{6} \\)", false],
+                ["\\(\\frac{1}{4} \\)", false]
+            ],
+            "answer":"The acceleration is given by: \\(x(t)=Ae^{-\\lambda t}\\cos(\\omega t+\\phi)\\)",
+            "image_sol": "sci.png"
+        },
+        {
+            "text": "Two coins are tossed, the probability that two heads are obtained is: Note: Each coin has two possible outcomes H (heads) and T (Tails)",
+            "id":11,
+            "options": [
+                ["\\(\\frac{1}{3} \\)", false],
+                ["\\(\\frac{1}{2} \\)", false],
+                ["\\(\\frac{1}{5} \\)", false],
+                ["\\(\\frac{1}{6} \\)", false],
+                ["\\(\\frac{1}{4} \\)", true]
+            ],
+            "answer":"You jeopardize the mission",
+            "image_sol": "smoke.png"
+        },
+        {
+            "text": "Which of these numbers cannot be a probability?",
+            "id":33,
+            "options": [
+                ["\\(0.05\\)", false],
+                ["\\(1.5\\)", true],
+                ["\\(\\frac{2}{3}\\)", false],
+                ["\\(20\\%\\)", false],
+                ["\\(99\\%\\)", false]
+            ],
+            "answer":"No solution available for this problem",
+            "image_sol": ""
+        },
+        {
+            "text": "A jar contains 3 red marbles, 7 green marbles and 10 white marbles. If a marble is drawn from the jar at random, the probability that this marble is white is: ",
+            "id":44,
+            "options": [
+                ["\\(0.05\\)", false],
+                ["\\(1.5\\)", false],
+                ["\\(\\frac{1}{2}\\)", true],
+                ["\\(20\\%\\)", false],
+                ["\\(99\\%\\)", false]
+            ]
+        },
+        {
+            "text": "A card is drawn at random from a deck of cards. The probability of getting the 3 of diamond is:",
+            "id":55,
+            "image": "pocket_cards.png",
+            "options": [
+                ["\\(\\frac{5}{52}\\)", false],
+                ["\\(\\frac{3}{52}\\)", false],
+                ["\\(\\frac{1}{52}\\)", true],
+                ["\\(\\frac{7}{52}\\)", false],
+                ["\\(0.05%\\)", false]
+            ],
+            "answer":"The acceleration is given by: \\(x(t)=Ae^{-\\lambda t}\\cos(\\omega t+\\phi)\\)",
+            "image_sol": "bike2.png"
+
+        },
+        {
+            "text": " Tres empresas \\(A\\), \\(B\\) y \\(C\\) suministran el 25% , el 35% y el 40% de los cuadernos a una escuela. La experiencia pasada muestra que el 5%, el 4% y el 2% de los portátiles producidos por estas compañías son defectuosos. Si se descubrió que una computadora portátil es defectuosa, ¿cuál es la probabilidad de que A la haya suministrado?",
+
+            "id":56,
+            "image": "",
+            "options": [
+                ["\\(\\frac{44}{69}\\)", false],
+                ["\\(\\frac{25}{69}\\)", true],
+                ["\\(\\frac{11}{24}\\)", false],
+                ["\\(\\frac{13}{24}\\)", false],
+                ["\\(\\frac{8}{8}\\)", false]
+
+            ],
+            "answer":"Sean \\(A\\), \\(B\\) y \\(C\\) los eventos que \\(A\\), \\(B\\) y \\(C\\) proporcionan los cuadernos, respectivamente. Sea \\(D\\) el caso de que los cuadernos sean defectuosos. <br> Entonces,<br>\\( P (A) = 0.25, P (B) = 0.35, P (C) = 0.4 \n P (D | A) = 0.05, P (D | B) = 0.04,  P (D | C) = 0.02\\) <br> \\(P (A│D) = (P (D│A) * P (A)) / (P (D│A) * P (A) + P (D│B) * P (B) + P (D│ C) * P (C))\\)<br>=\\(0.05 * 0.25) / ((0.05 * 0.25) + (0.04 * 0.35) + (0.02 * 0.4)) = 2000 / (80 * 69)= \\frac{25}{69}\\)",
+
+
+
+
+
+            "image_sol": ""
+
+        }
+    ]
+}

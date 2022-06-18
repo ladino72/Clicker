@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>click</title>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="name_score">
+            <h4 class="text-center text-primary"><strong>LIST OF STUDENTS AND GRADES</strong></h4>
+            <p class="text-center text-primary"><strong>DATE: {{ date }}</strong></p>
+        </div>
+    </div>
+    <div class="container text-center">
+        <div class="table-responsive table-bordered">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="table-light text-center">FULL NAME</th>
+                        <th class="table-light">GRADE / {{total_questions}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for name, grade in name_grade.items()  %}
+                    <tr>
+                        <td class="text-left">{{name|upper}}</td>
+                        <td>{{grade}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>

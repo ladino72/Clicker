@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+{{super()}}
+<script src="{{ url_for('static', filename='js/chart/chart.js') }}"></script>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div id="name_score"></div>
+</div>
+<div class="container text-center">
+    <div class="row">
+        <div class="col">
+            <p class="text-primary"><strong>{{ title1 }}</strong></p>
+            <p class="text-primary"><strong> {{ "total students"|cap }}: {{ subtitle }}</strong><br><br></p>
+
+<canvas id="chart1" width="330" height="220" ></canvas>
+<script>
+  // bar chart data
+  var barData = {
+    labels : [
+      {% for item in labels1 %}
+       "{{ item }}",
+      {% endfor %}
+],
+    datasets : [{
+      fillColor: "rgba(151,187,205,0.2)",
+      strokeColor: "rgba(151,187,205,1)",
+      pointColor: "rgba(151,187,205,1)",
+      data : [
+        {% for item in values1 %}
+           "{{ item }}",
+          {% endfor %}
+  ]
+      }
+    ]
+  }
+ // get bar chart canvas
+ var mychart1 = document.getElementById("chart1").getContext("2d");
+   steps = 10
+   max = {{max1}}
+ // draw bar chart
+ new Chart(mychart1).Bar(barData, {
+   scaleOverride: true,
+   scaleSteps: steps,
+   scaleStepWidth: Math.ceil(max / steps),
+   scaleStartValue: 0,
+   scaleShowVerticalLines: true,
+   scaleShowGridLines : true,
+   barShowStroke : true,
+   scaleShowLabels: true
+   }
+ );
+</script>
+
+        </div>
+        <div class="col">
+            <p class="text-primary"><strong>{{ title2 }}</strong></p>
+        <p class="text-primary"><strong> {{ "total students"|cap }}: {{ subtitle }}</strong><br><br></p>
+           <canvas id="chart2" width="330" height="220" ></canvas>
+<script>
+  // bar chart data
+  var barData = {
+    labels : [
+      {% for item in labels2 %}
+       "{{ item }}",
+      {% endfor %}
+],
+    datasets : [{
+      fillColor: "rgba(151,187,205,0.2)",
+      strokeColor: "rgba(151,187,205,1)",
+      pointColor: "rgba(151,187,205,1)",
+      data : [
+        {% for item in values2 %}
+           "{{ item }}",
+          {% endfor %}
+  ]
+      }
+    ]
+  }
+ // get bar chart canvas
+ var mychart2 = document.getElementById("chart2").getContext("2d");
+   steps = 1
+   max = {{max2}}
+ // draw bar chart
+ new Chart(mychart2).Bar(barData, {
+   scaleOverride: true,
+   scaleSteps: steps,
+   scaleStepWidth: Math.ceil(max / steps),
+   scaleStartValue: 0,
+   scaleShowVerticalLines: true,
+   scaleShowGridLines : true,
+   barShowStroke : true,
+   scaleShowLabels: true
+   }
+ );
+</script>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

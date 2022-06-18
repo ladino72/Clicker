@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>click</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/bootstrap/css/bootstrap.min.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/css/styles.min.css') }}">
+
+</head>
+
+<body class="flex-fill">
+    <div class="container">
+        <nav class="navbar navbar-dark navbar-expand-md bg-primary">
+            <div class="container-fluid"><a class="navbar-brand" href="#">Clicker</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse"
+                    id="navcol-1">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Admin</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Test</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{{url_for('auth.login')}}">Login</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{{url_for('auth.register')}}">Sign up</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Log out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div id="contjumbo">
+        <div class="container">
+            <div class="jumbotron" id="jumbotron">
+                <h1>Welcome again!</h1>
+                <p>In this activity you should work individually and answer all the questions. Once you click the submit button you can not change your answers. Please wait until your instructor announces you to start taking the test by clicking the "Start"
+                    button.</p>
+                <p><a class="btn btn-primary" role="button" href="{{url_for('admin_test.view_test')}}">Start</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/bootstrap/js/bootstrap.min.js') }}"></script>
+
+</body>
+
+</html>

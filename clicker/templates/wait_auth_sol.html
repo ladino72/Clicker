@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+{{super()}}
+{% endblock %}
+{% block content %}
+<div id="contjumbo">
+        <div class="container">
+            <div class="jumbotron" id="jumbotron">
+                <h1>{{ current_user.name }}</h1>
+                <h2>Thank you for sending your answers!</h2>
+                <p>Now, please wait until your instructor inform that you can see your score and the answers to this test.</p>
+                <p><a class="btn btn-primary" role="button" href="{{url_for('admin_test.view_test_sol')}}">Start</a></p>
+            </div>
+        </div>
+</div>
+{% endblock %}

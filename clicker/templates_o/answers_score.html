@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>click</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/bootstrap/css/bootstrap.min.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/css/styles.min.css') }}">
+
+    <style type="text/css">
+        .question-correct:after {
+            content: "✓";
+            font-size: 30px;
+            color: green;
+            padding-left: 10px;
+        }
+
+        .question-incorrect:after {
+            content: "✗";
+            font-size: 30px;
+            color: red;
+            padding-left: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-dark navbar-expand-md bg-primary">
+            <div class="container-fluid"><a class="navbar-brand" href="#">Clicker</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse"
+                    id="navcol-1">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Admin</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Quiz</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Login</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Sign up</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Log out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div>
+        <div class="container text-center">
+            <div>
+                <h4 class="text-primary" id="header"><strong> {{current_user.name}}, your score: {{correct}} / {{total}}</strong></h4>
+            </div>
+        </div>
+    </div>
+    {% for question, choice in question_answer %}
+    <div id="prob">             
+        <div class="container">
+            {% if choice[1] %} 
+            <h5 class="question-correct text-primary" > Problem {{loop.index}}:</h5> 
+            {% else %}
+            <h5 class="question-incorrect text-primary" > Problem {{loop.index}}:</h5>
+            {% endif %} 
+
+            <p class="text-justify">  {{question['text']|safe}}<br></p>
+        </div>
+
+        <div class="container">
+            {% if question.image %}
+                {% if question.image.startswith('http://') %}
+                    <img src="{{ question.image }}">
+                {% else %}
+                    <div class="text-center"><img src="{{ url_for('static', filename='img/' + question.image) }}" width="250"></div>
+                {% endif %}
+
+            {% endif %}
+
+
+            <div class="text-left">
+                <ul>
+                {% for answer in question['options'] %}
+                       <li {% if answer[1] %} class="question-correct" {% elif not answer[1] %} class="question-incorrect" {% endif %}>
+                            {{answer[0]|safe}} {% if answer == choice %} - <strong> Chosen </strong> {% endif %}
+                       </li>
+                    
+                {% endfor %}
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/bootstrap/js/bootstrap.min.js') }}"></script>
+
+</body>
+
+</html>

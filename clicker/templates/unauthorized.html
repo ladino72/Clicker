@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+{{super()}}
+{% endblock %}
+{% block content %}
+<div id="contjumbo">
+        <div class="container">
+            <div class="jumbotron" id="jumbotron">
+                <h4 class="text-center text-warning"><br><strong>{{ message }}</strong><br><br></h4>
+            </div>
+        </div>
+</div>
+{% endblock %}

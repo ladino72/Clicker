@@ -1,0 +1,70 @@
+{
+    "name": "Física fundamental: Cinemática",
+    "description": "Problemas sobre Cinemática",
+    "questions": [
+        {
+            "text": "La gráfica muestra la posición contra el tiempo para un cuerpo que se mueve a lo largo del eje x, la velocidad del cuerpo a \\(t=5 \\,\\text{s} \\)️ es:",
+            "image": "kinematics_01.png",
+            "id":0,
+            "options": [
+                ["\\(3 \\,\\text{m/s}  \\)", false],
+                ["\\(0\\)", true],
+                ["\\(\\frac{8}{3}\\text{m/s}\\)", false],
+                ["\\(-\\frac{8}{3}\\text{m/s}\\)", false]
+            ],
+            "answer":"La velocidad viene dada por la pendiente de la curva en \\(t=5\\,\\text{s}\\), la cual es \\(0\\)"
+        },
+        {
+            "text": "La gráfica muestra la posición contra el tiempo para un cuerpo que se mueve a lo largo del eje x, la velocidad del cuerpo a \\(t=8 \\,\\text{s} \\) es:",
+            "image": "kinematics_01.png",
+            "id":2,
+            "options": [
+                ["\\(-\\frac{8}{3}\\text{m/s}\\)", true],
+                ["\\(2 \\,\\text{m/s}  \\)", false],
+                ["\\(0\\)", false],
+                ["\\(\\frac{8}{3}\\text{m/s}\\)", false]
+            ],
+            "answer":"La velocidad viene dada por la pendiente de la curva en \\(t=8\\,\\text{s}\\), la cual es \\(-\\frac{8}{3}\\,\\text{m/s}\\)"
+        },
+        {
+            "text": "La gráfica muestra la velocidad contra el tiempo para un cuerpo que se mueve a lo largo del eje \\(x\\), el desplazamiento del cuerpo para los primeros cuatro segundos es:",
+            "image": "kinematics_03.png",
+            "id":11,
+            "options": [
+                ["\\(16\\,\\text{m}\\)", true],
+                ["\\(8\\,\\text{m}\\)", false],
+                ["\\(14\\,\\text{m}\\)", false],
+                ["\\(12\\,\\text{m}\\)", false]
+            ],
+            "answer":"El desplazamiento viene dado por el área bajo la curva: \\( \\text{área del rectángulo sombreado}\\), es decir, \\( \\Delta x =(4\\, \\text{s})\\times (4\\, \\text️{m/s})=16\\,\\text️{m} \\)",
+            "image_sol": "kinematics_03a1.png"
+        },
+        {
+            "text": "La gráfica muestra la velocidad en función del tiempo para un cuerpo que se mueve a lo largo del eje \\(x\\), el desplazamiento del cuerpo para el intervalo de tiempo \\(t=3 \\,\\text️{s} \\) a \\(t=6\\,\\text️{s} \\) es:",
+            "image": "kinematics_03.png",
+            "id":22,
+            "options": [
+                ["\\(12.6\\,\\text{m}\\)", false],
+                ["\\(4.8\\,\\text{m}\\)", false],
+                ["\\(18.4\\,\\text{m}\\)", false],
+                ["\\(10.6\\,\\text{m}\\)", true]
+            ],
+            "answer":"El desplazamiento viene dado por el área bajo la curva: área del rectángulo + área del trapecio, es decir \\(\\\\ \\Delta x = (1\\,\\text{s})(4\\,\\text{m/s}) +\\frac{1}{2}(4\\,\\text{m/s}+2.6\\,\\text{m/s})(2\\,\\text{s})=4\\,\\text{m}+6.6\\,\\text{m}=10.6\\,\\text{m}\\)",
+            "image_sol": "kinematics_03a2.png"
+        },
+        {
+            "text": "La gráfica muestra la velocidad en función del tiempo para un vehículo que se mueve a lo largo del eje \\(x\\), la aceleración del vehículo en \\(t=7\\,\\text{s}\\) es",
+            "image": "kinematics_04.png",
+            "id":44,
+            "options": [
+                ["\\( 3\\,\\text{m/s}^2 \\)", false],
+                ["\\( 1\\,\\text{m/s}^2 \\)", false],
+                ["\\( 2\\,\\text{m/s}^2 \\)", true],
+                ["\\( 5\\,\\text{m/s}^2 \\)", false],
+                ["\\( 4\\,\\text{m/s}^2 \\)", false]
+            ],
+            "answer":"El vehículo se desplaza con aceleración constante durante el intervalo de tiempo \\(t=4\\) a \\(t=10\\,\\text{s}\\). La aceleración viene dada por la pendiente de la curva en \\(t=7\\), que es: \\( a=\\frac{\\Delta v}{\\Delta t}=\\frac{4\\,\\text{m/s}}{2\\,\\text{s}}=2\\,\\text{m/s}^2\\)",
+            "image_sol": "kinematics_04a1.png"
+        }
+    ]
+}

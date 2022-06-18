@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+{{super()}}
+{% endblock %}
+{% block content %}
+<div class="container">
+        <div id="name_score">
+            <h3 class="text-center text-primary"><strong>TESTSBANK</strong></h3>
+        </div>
+</div>
+    <div class="container">
+        <ul class="list-group">
+            {% for id, name in quiz_names %}
+                <li class="list-group-item"><a href="{{url_for('admin_test.selected_subject', id=id)}}">{{name}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

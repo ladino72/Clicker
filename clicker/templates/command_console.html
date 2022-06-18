@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+{{super()}}
+
+    <script src="{{ url_for('static', filename='js/jquery/http_ajax.googleapis.com_ajax_libs_jquery_3.1.0_jquery.js') }}"></script>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/tooltip5.css') }}">
+    <script src="{{ url_for('static', filename='js/help_info/grade8.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/help_info/end_test9.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/help_info/enable_test3.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/help_info/new_test8.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/tooltip/tooltip3.js') }}"></script>
+
+
+{% endblock %}
+{% block content %}
+<div class="container">
+        <div class="text-center" id="name_score">
+            <h3 class="text-primary"><strong>TEST COMMAND CONSOLE</strong></h3>
+        </div>
+    </div>
+    <div class="container">
+        <div class="text-center" id="messages">
+            <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
+        </div>
+    </div>
+    <div class="text-break" id="Block-padding">
+        <div class="container">
+            <div class="text-center bg-light">
+                <div class="row no-gutters">
+                    <div class="col-auto col-sm-5 col-md-6 col-lg-3 col-xl-3 offset-sm-1 offset-md-0 offset-xl-0 m-auto">
+                        <form id="new_test">
+                            <div class="form-group">
+                                <div class="form-check"><input class="form-check-input" type="checkbox" value="1" id="formCheck-7"><label class="form-check-label text-primary" for="formCheck-7">New test<br></label></div>
+                            </div>
+                            <div class="form-group"><button class="btn btn-primary btn-sm" type="submit" id="new_test_btn" >Commit</button></div>
+
+                        </form>
+                    </div>
+                    <div class="col-auto col-sm-5 col-lg-3 col-xl-3 offset-sm-2 offset-lg-0 m-auto">
+
+                        <form method="GET" action="{{url_for('admin_test.subject_list')}}" >
+                            <p class="text-primary"><a href="#" data-toggle="tooltip"  id="tooltip3" data-placement="left" title="Before enabling the test, please set up the test" >Test Bank</a></p>
+                            <div class="form-group"><button class="btn btn-primary btn-sm" disabled type="submit" id="testbank_btn">Click to execute</button></div>
+
+                        </form>
+                    </div>
+                    <div class="col-auto col-sm-5 col-lg-3 col-xl-3 offset-sm-2 offset-lg-0 m-auto">
+                        <form id="enable_test">
+                            <div class="form-group">
+                                <div class="form-check"><input class="form-check-input" type="checkbox" name="enable_test" value="1" id="formCheck-1" disabled><label class="form-check-label" for="formCheck-1"><a href="#" data-toggle="tooltip"  id="tooltip1" data-placement="left" title="Before enabling the test, announce to the students to log in or sign up first!" >Enable test</a></label></div>
+                            </div>
+                            <div class="form-group"><button class="btn btn-primary btn-sm" type="submit" disabled id="enable_test_btn" >Click to execute</button></div>
+
+                        </form>
+                    </div>
+                    <div class="col-auto col-sm-5 col-md-4 col-lg-3 col-xl-3 offset-sm-2 offset-lg-0 m-auto">
+                        <form id="end_test">
+                            <div class="form-group">
+                                <div class="form-check"><input class="form-check-input" type="checkbox" name="end_test" value="1" id="formCheck-3" disabled><label class="form-check-label" for="formCheck-3">End test</label></div>
+                            </div>
+                            <div class="form-group"><button class="btn btn-primary btn-sm" type="submit" disabled id="end_test_btn">Click to execute</button></div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-break" id="Block-padding">
+        <div class="container">
+            <div class="text-center bg-light">
+                <div class="row no-gutters">
+                    <div class="col-auto col-sm-5 col-md-6 col-lg-3 col-xl-3 offset-sm-1 offset-md-0 offset-xl-0 m-auto">
+                        <form  id="grade" >
+                            <p class="text-primary">Grade test</p>
+                            <div class="form-group"><button class="btn btn-primary btn-sm" type="submit" disabled id="grade_btn">Click to execute</button></div>
+
+
+                        </form>
+                    </div>
+                    <div class="col-auto col-sm-5 col-lg-3 col-xl-3 offset-sm-2 offset-lg-0 m-auto">
+                        <form method="POST" action="{{ url_for('admin_test.auth_see_sol') }}">
+                            <div class="form-group">
+                                <div class="form-check"><input class="form-check-input" type="checkbox"  name="auth_see_sol" value="1" disabled id="formCheck-2"><label class="form-check-label" for="formCheck-2"><a href="#" data-toggle="tooltip"  id="tooltip2" data-placement="left" title="Before showing the answers, make sure to grade the test first!" >Show answers</a></label></div>
+                            </div>
+                            <div class="form-group"><button class="btn btn-primary btn-sm" type="submit" disabled id="auth_see_sol_btn">Click to execute</button></div>
+
+                        </form>
+                    </div>
+                    <div class="col-auto col-sm-5 col-lg-3 col-xl-3 offset-sm-2 offset-lg-0 m-auto">
+                        <form method="GET" action="{{ url_for('admin_test.show_statistics') }}" >
+                            <p class="text-primary">Show statistics</p>
+                            <div class="form-group"><button class="btn btn-primary btn-sm" type="submit" disabled id="show_stat_btn">Click to execute</button></div>
+
+                        </form>
+                    </div>
+                    <div class="col-auto col-sm-5 col-md-4 col-lg-3 col-xl-3 offset-sm-2 offset-lg-0 m-auto">
+                        <form method="GET" action="{{ url_for('admin_test.save_results_pdf') }}">
+                            <p class="text-primary">Save scores</p>
+                            <div class="form-group"><button class="btn btn-primary btn-sm" type="submit" disabled id="save_results_btn">Click to execute</button></div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

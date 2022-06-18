@@ -1,0 +1,79 @@
+{
+    "name": "Física Fundamental: Análisis dimensional",
+    "description": "A simple quiz about units!",
+    "questions": [
+        {
+            "text": "Question_0",
+            "image": "bevegelse.png",
+            "id":0,
+            "options": [
+                ["\\(ax^2 + bx + c = 0\\)", false],
+                ["\\(ax^2 + \\frac{5}{8}x + c = z\\)", true],
+                ["\\(F=k\\frac{q_1q_2}{r^2}\\)", false],
+                ["\\(\\Biggl(\\biggl(\\Bigl(\\bigl((q_1=q_2)\\bigr)\\Bigr)\\biggr)\\Biggr)\\)", false]
+            ],
+            "answer":"The acceleration is given by: \\(x(t)=Ae^{-\\lambda t}\\cos(\\omega t+\\phi)\\)",
+            "image_sol": "ekko.png"
+        },
+        {
+            "text": "Un año luz es la distancia que la luz avanza durante un año a la velocidad aproximada de 300.000 km/s. De manera similar se define una hora luz. El número de veces que es mayor el año luz que la hora luz es:",
+            "id":2,
+            "options": [
+                ["\\(365\\)", false],
+                ["\\(8760\\)", true],
+                ["\\(300000\\)", false],
+                ["\\(24\\)", false]
+            ],
+            "answer":"\\(\\text{año luz en metros}=c \\times 365\\, \\text{días} \\times 24\\, \\text{h} \\times 3600\\,\\text{s},\\,\\text{donde}\\, c=3 \\times 10^{8}\\,\\text{m/s}\\) <br>\\(\\text{hora luz en metros}=c \\times  1\\,\\text{hora} \\times 3600\\,\\text{s}.\\) <br>\\(\\text{Así}, \\frac{\\text{año luz en metros}}{\\text{hora luz en metros}}=8760 \\)",
+            "image_sol": "ekko.png"
+        },
+        {
+            "text": "Question_1",
+            "image": "signals.png",
+            "id":11,
+            "options": [
+                ["\\(\\sum_{n=0}^{+\\infty} \\frac{x^n}{n!}\\)", true],
+                ["\\(\\underbrace{Biology}\\)", false],
+                ["\\(x(t)=Ae^{-\\lambda t}\\cos(\\omega t+\\phi)\\)", false],
+                ["\\(\\overbrace{Physics}\\)", false]
+            ],
+            "answer":" The net force upon the body is \\(F=k\\frac{q_1q_2}{r^2}\\)",
+            "image_sol": "science.png"
+        },
+        {
+            "text": "Question_2",
+            "id":22,
+            "options": [
+                ["\\(\\frac{1}{3}\\)", false],
+                ["\\(\\vec{\\tau}=I\\vec{\\alpha}\\)", true],
+                ["\\(\\vec{\\tau}=\\vec{M}\\times\\vec{B}\\)", false],
+                ["\\(\\vec{F}=m\\vec{a}\\)", false]
+            ],
+            "answer":"The summation is \\(\\sum_{n=0}^{+\\infty} \\frac{x^{3n}}{2n!}\\)",
+            "image_sol": "bike1.png"
+        },
+        {
+            "text": "Question_3",
+            "id":33,
+            "options": [
+                ["\\(\\sum_{n=0}^{+\\infty} \\frac{x^{3n}}{2n!}\\)", false],
+                ["\\(\\vec{L}=\\vec{r}\\times\\vec{p}\\)", false],
+                ["\\(F=G\\frac{m_1m_2}{r^2}\\)", true],
+                ["\\(\\vec{\\tau}=\\vec{r}\\times\\vec{F}\\)", false]
+            ],
+            "answer":" The velocity is given by: \\(x(t)=100e^{-2\\lambda t}\\cos(\\omega t+\\phi)\\)",
+            "image_sol": "sci.png"
+        },
+        {
+            "text": "Question_4",
+            "id":44,
+            "options": [
+                ["\\(\\frac{1}{4}\\)", false],
+                ["\\(x^{\\frac{1}{4}}\\)", false],
+                ["\\(\\sqrt{{1}{5}}\\)", true]
+            ],
+            "answer":" The position is given by: \\(x(t)=Ae^{-\\lambda t}\\cos(\\omega t+\\phi)\\)",
+            "image_sol": "smoke.png"
+        }
+    ]
+}
